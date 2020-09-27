@@ -80,7 +80,5 @@ SELECT nombre FROM cliente AS A JOIN factura AS B ON A.id = B.id_cliente ORDER B
 --¿Que cliente pagó sobre 100 de monto?
 SELECT DISTINCT nombre FROM cliente AS A JOIN factura AS B ON A.id = B.id_cliente WHERE b.total >= 100;
 --¿Cuantos clientes han comprado el producto 6?
-SELECT COUNT nombre FROM cliente as A JOIN factura AS B ON A.id = B.id_cliente WHERE B.id_cliente = (
-    SELECT id_cliente FROM factura AS C JOIN factura_producto as D ON C.id = D.id_factura WHERE D.id_producto = 6;
-);
+SELECT COUNT (*) FROM factura AS C JOIN factura_producto as D ON C.id = D.id_factura WHERE D.id_producto = 6;
 
